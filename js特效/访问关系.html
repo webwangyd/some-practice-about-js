@@ -1,0 +1,28 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>无标题文档</title>
+</head>
+
+<body>
+<ul id="ul">
+  <li>123</li>
+  <li>456</li>
+  <li>789</li>
+    <li>789</li>
+</ul>
+<script>
+  var txt=document.getElementById("ul");
+  var children=txt.childNodes;
+  var arr=[];
+  for(var i=0;i<children.length;i++)
+  {
+	  if(children[i].nodeType==1)
+	  arr.push(children[i]);
+	  }
+  console.log(arr.length)
+  
+</script>
+</body>
+</html>

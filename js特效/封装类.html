@@ -1,0 +1,39 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>无标题文档</title>
+</head>
+<script>
+  window.onload=function(){
+	  function getClass(className){
+		  if(document.getElementsByClassName){
+			  return document.getElementsByClassName(className);
+			  }else
+			  {
+				  var arr=[];
+				  var flag=document.getElementsByTagName("*");
+				  for(var i=0;i<flag.length;i++)
+				  {
+					  if(flag[i].className==className)
+					     {
+							 arr.push(flag[i]);
+							 }
+					  }
+				  }
+				  return arr;
+		  }
+	      console.log(getClass("demo").length);
+	  }
+
+</script>
+<body>
+<div></div>
+<div class="demo"></div>
+<div></div>
+<div class="demo"></div>
+<div class="demo"></div>
+<div></div>
+<div class="demo"></div>
+</body>
+</html>

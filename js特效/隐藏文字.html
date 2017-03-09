@@ -1,0 +1,58 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>无标题文档</title>
+</head>
+<script>
+  window.onload=function(){
+	  var txt=document.getElementById("text");
+	  txt.onfocus=function(){
+		  if(txt.value=="请输入...")
+		  { 
+		     txt.value="";
+		     txt.style.color="#333";
+		  }
+	 }
+	   txt.onblur=function(){
+		   if(txt.value=="")
+		    {
+				txt.value="请输入...";
+		        txt.style.color="#ccc";
+		    }
+		   }
+	  }
+</script>
+<style>
+#box{
+	width:258px;
+	height:40px;
+	margin:100px auto}
+#box input{
+	width:208px;
+	height:40px;
+	padding:0;
+	background:url(images/left.jpg) no-repeat;
+	border:0 none;
+	padding-left:8px;
+	float:left;
+	color:#ccc;
+	}
+#box button{
+	
+	width:42px;
+	height:40px;
+	padding:0;
+	margin:0;
+	border:0 none;
+	background:url(images/right.jpg) no-repeat;
+	float:left;} 
+
+</style>
+<body>
+<div id="box">
+<input type="text" value="请输入..." id="text">
+<button></button>
+</div>
+</body>
+</html>

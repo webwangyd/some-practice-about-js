@@ -1,0 +1,24 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>无标题文档</title>
+</head>
+
+<body>
+<div id="demo"></div>
+</body>
+<script>
+   var demo=document.getElementById("demo");
+   window.onresize=throttle(function(){
+	   demo.innerHTML=window.innerWidth||document.documentElement.clientWidth;
+	   },300);
+   function  throttle(fn,delay){
+	   var timer=null;
+	   return function(){
+		   clearTimeout(timer);
+		   timer=setTimeout(fn,delay);
+		   }
+	   }
+</script>
+</html>

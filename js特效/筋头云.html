@@ -1,0 +1,82 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>无标题文档</title>
+</head>
+<style>
+   *{
+	   margin:0;
+	   padding:0;}
+	ul{list-style:none;
+	   position:absolute;
+	   top:0;
+	   left:0;
+	}
+	ul li{
+		float:left;
+		width:83px;
+		height:42px;
+		line-height:42px;
+		text-align:center;
+		color:#000;
+		cursor:pointer;}
+	body{
+		background-color:#000;
+		}
+	.cloud{
+	   width: 83px;
+		height: 42px;
+		position: absolute;
+		top: 0;
+		left: 0;
+		background:url(%E7%89%B9%E6%95%88images/cloud.gif) no-repeat;}
+	#box{
+		width:800px;
+		height:42px;
+		margin:100px auto;
+		border-radius:5px;
+		position:relative;
+		background:url(%E7%89%B9%E6%95%88images/rss.png) no-repeat right center #FFFFFF}
+</style>
+<script>
+   window.onload=function(){
+	   var leader=0,target=0,current=0;
+	   var cld=document.getElementById("cloud");
+	   var lis=cld.parentNode.children[1].children;
+	   for(var i=0;i<lis.length;i++){
+		   lis[i].onmouseover=function(){
+			   target=this.offsetLeft;
+			   }
+			lis[i].onclick=function(){
+				current=this.offsetLeft;
+				}
+			lis[i].onmouseout=function(){
+			   target=current;
+			   }
+		   
+		   
+		   }
+	   
+	   //缓动
+	   setInterval(function(){
+	  leader=leader+(target-leader)/10;
+	   cld.style.left=leader+"px"},30);
+	   }
+</script>
+<body>
+<div id="box">
+  <span class="cloud" id="cloud"></span>
+  <ul>
+    <li>首页新闻</li>
+    <li>师资力量</li>
+    <li>活动策划</li>
+    <li>企业文化</li>
+    <li>招聘信息</li>
+    <li>公司简介</li>
+    <li>上海校区</li>
+    <li>广州校区</li>
+  </ul>
+</div>
+</body>
+</html>

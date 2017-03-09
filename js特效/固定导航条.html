@@ -1,0 +1,46 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>无标题文档</title>
+</head>
+<style>
+*{
+	margin:0;
+    padding:0;}
+#main{
+	margin:0 auto;
+    width:1000px;}
+.fixed{
+	position:fixed;
+	top:0;
+	left:0;}
+</style>
+<script src="scroll.js"></script>
+<script>
+ window.onload=function(){
+	 var nav=$("nav");
+	 var navtop=nav.offsetTop;
+	 console.log(navtop);
+	 window.onscroll=function(){
+		 if(scroll().top>=navtop){
+			 nav.className="fixed";
+			 }else{
+				 nav.className=""
+				 }
+		 }
+	 
+	 }
+</script>
+<body>
+<div id="top">
+ <img src="特效images/top.png">
+</div>
+<div id="nav">
+<img src="特效images/nav.png">
+</div>
+<div id="main">
+<img src="特效images/main.png">
+</div>
+</body>
+</html>

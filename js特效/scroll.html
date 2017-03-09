@@ -1,0 +1,36 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>无标题文档</title>
+</head>
+<style>
+ body{
+	 height:3000px;}
+</style>
+<body>
+</body>
+<script>
+   function scroll(){
+	   if(window.pageYOffset!=null){
+		   return {
+			   left:window.pageXOffset,
+			   top:window.pageYOffset
+			   }
+		   }else if(document.compatMode=="CSS1Compat"){
+			     return{
+					 left:document.documentElement.scrollLeft,
+					 top:document.documentElement.scrollTop
+					 }
+			   }
+			 return {
+				 left:document.body.scrollLeft,
+				 top:document.body.scrollTop
+				 }
+			
+	   }
+	   window.onscroll=function(){
+				console.log(scroll().top);
+				}	 
+</script>
+</html>

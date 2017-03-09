@@ -1,0 +1,80 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>无标题文档</title>
+</head>
+<style>
+ #box{
+	 width:512px;
+	 height:400px;
+	 margin:100px auto;
+	 position:relative;
+	 overflow:hidden;
+	 border:1px solid #F00;
+	 }
+#up{
+	width:100%;
+	height:200px;
+	position:absolute;
+	cursor:pointer;
+	top:0;
+	}
+#down{
+	width:100%;
+	height:200px;
+	position:absolute;
+	cursor:pointer;
+	bottom:0;}
+#box img{
+	position:absolute;}
+</style>
+<script>
+    window.onload=function(){
+	alert(1||5)
+	 var num=0;
+	 var time=null;
+	 function $(id){return document.getElementById(id)}
+	  $("up").onmouseover=function(){
+		  clearInterval(time);
+/*		  console.log(num);*/
+          time=setInterval(function(){
+			   num-=3;
+			   if(num>=-1070){
+				   $("plc").style.top=num+"px";
+				   }else{
+					   clearInterval(time);
+					   }
+				      
+			   },30);
+			   
+		  }
+		  
+		   $("down").onmouseover=function(){
+			clearInterval(time);
+/*		  console.log(num);*/
+           time=setInterval(function(){
+			   num+=3;
+			   if(num<0){
+				   $("plc").style.top=num+"px";
+				   }else{
+					   clearInterval(time);
+					   }
+				      
+			   },30);
+			   
+		  }
+		  $("box").onmouseout=function(){
+			  clearInterval(time);
+			  }
+		  
+		}
+</script>
+<body>
+<div id="box">
+  <img src="images/mi.png" id="plc">;
+  <div id="up"></div>
+  <div id="down"></div>
+</div>
+</body>
+</html>

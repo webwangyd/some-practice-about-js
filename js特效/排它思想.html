@@ -1,0 +1,36 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>无标题文档</title>
+</head>
+<style>
+  .current{
+	  background-color:#F00;}
+</style>
+<script>
+  window.onload=function(){
+	  var byn=document.getElementsByTagName("button");
+	  for(var i=0;i<byn.length;i++)
+	  {
+		  byn[i].index=i;
+		  byn[i].onclick=function(){
+			   alert(this.index)
+			   for(var i=0;i<byn.length;i++)
+			   {
+				   byn[i].className="";
+				   }
+			   this.className="current";
+			  }
+		  }
+	  }
+</script>
+<body>
+<button>编程思想</button>
+<button>编程思想</button>
+<button>编程思想</button>
+<button>编程思想</button>
+<button>编程思想</button>
+<button>编程思想</button>
+</body>
+</html>

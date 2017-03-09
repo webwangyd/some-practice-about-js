@@ -1,0 +1,92 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>无标题文档</title>
+</head>
+<style>
+*{
+	margin:0;
+	padding:0;}
+   #box{
+	   width:350px;
+	   height:350px;
+	   border:1px solid #ccc;
+	   margin:100px;
+	   position:relative;}
+	#big{
+		width: 450px;
+            height: 450px;
+            position: absolute;
+            top: 0;
+            left: 360px;
+			border: 1px solid #ccc;
+            overflow: hidden;
+            display: none;
+		}
+	 #mask {
+            width: 100px;
+            height: 100px;
+            background: rgba(255, 255, 0, 0.4);
+            position: absolute;
+            top: 0;
+            left: 0;
+            cursor: move;
+            display: none;
+        }
+	#big img {
+            position: absolute;
+            top: 0;
+            left: 0;
+        }
+</style>
+<body>
+<div id="box">
+  <div id="small">
+     <img src="特效images/001.jpg">
+     <div id="mask"></div>
+   </div>
+   <div id="big">
+   <img src="特效images/0001.jpg">
+   </div>
+</div>
+</body>
+<script>
+   var box=document.getElementById("box");
+   var small=box.children[0];
+   var bigbox=box.children[1];
+   var bigimg=bigbox.children[0];
+   var mask=small.children[1];
+   small.onmouseover=function(){
+	   mask.style.display="block";
+	   bigbox.style.display="block";
+	   }
+	small.onmouseout=function(){
+	   mask.style.display="none";
+	   bigbox.style.display="none";
+	   }
+	 var x=0,y=0;
+	 small.onmousemove=function(event){
+		 var event=event||window.event;
+		 x=event.clientX-this.offsetParent.offsetLeft-mask.offsetWidth/2;
+		 y=event.clientY-this.offsetParent.offsetTop-mask.offsetHeight/2;
+		 if(x<=0){
+			 x=0
+			 }else if(x>small.offsetWidth - mask.offsetWidth){
+				 x=small.offsetWidth - mask.offsetWidth;
+				 }
+		 if(y<=0){
+			 y=0
+			 }else if(y>small.offsetHeight - mask.offsetHeight){
+				 y=small.offsetHeight - mask.offsetHeight;
+				 }
+		mask.style.left=x+"px";
+	    mask.style.top=y+"px";
+		bigimg.style.left=-x*bigbox.offsetWidth /box.offsetWidth+"px";
+        //有个疑问，bigimg是以哪个来定位的，#big已经是绝对定位了，为什么还会以big来作为参照，怎么不按他的父类相对定位的box呢
+		//好吧，想通了，不管父类是什么定位，只要定位就可以了
+		bigimg.style.top=-y*bigbox.offsetHeight /box.offsetHeight+"px";
+		 }
+		
+</script>
+</html>

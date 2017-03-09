@@ -1,0 +1,50 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>无标题文档</title>
+</head>
+<style>
+  #clock{
+	  width:600px;
+	  height:600px;
+	  background:url(images/clock.jpg) no-repeat;
+	  margin:40px auto;
+	  position:relative;}
+#clock div{
+	width:100%;
+	height:100%;
+	position:absolute;
+	}
+#h{
+	background:url(images/hour.png) no-repeat center center}
+#m{
+	background:url(images/minute.png) no-repeat center center}
+#s{
+	background:url(images/second.png) no-repeat center center}
+</style>
+<script>
+  window.onload=function(){
+	  var hour=document.getElementById("h");
+	  var mins=document.getElementById("m");
+	  var second=document.getElementById("s");
+	  setInterval(function(){
+		  var date=new Date();
+		  var ms=date.getMilliseconds();
+		  var s=date.getSeconds()+ms/1000;
+		  var m=date.getMinutes()+s/60;
+		  var h=date.getHours()%12+m/60;
+		    hour.style.webkitTransform="rotate("+h*30+"deg)"
+		    mins.style.webkitTransform="rotate("+m*6+"deg)"
+			second.style.webkitTransform="rotate("+s*6+"deg)"
+		  },50)
+	  }
+</script>
+<body>
+<div id="clock">
+   <div id="h"></div>
+   <div id="m"></div>
+   <div id="s"></div>
+</div>
+</body>
+</html>

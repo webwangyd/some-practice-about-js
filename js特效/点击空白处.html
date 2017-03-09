@@ -1,0 +1,60 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>无标题文档</title>
+</head>
+<style>
+body{height:2000px}
+#mask{
+	width:100%;
+	height:100%;
+	opacity: 0.4;   /*半透明*/
+    filter: alpha(opacity = 40);  /*ie 6半透明*/
+	background-color:black;
+	position:fixed;
+	top:0;
+	left:0;
+	display:none;
+	}
+#show{
+	width:300px;
+	height:300px;
+	position:fixed;
+	background-color:#FFF;
+	top:50%;
+	left:50%;
+	margin-top:-150px;
+	margin-left:-150px;
+	display:none;}
+</style>
+<body>
+<button id="btn">登录</button>
+<div id="mask"></div>
+<div id="show"></div>
+</body>
+<script>
+  function $(id){return document.getElementById(id)}
+  $("btn").onclick=function(){
+	  $("mask").style.display="block";
+	  $("show").style.display="block";
+	  document.body.style.overflow="hidden";
+	  var event=event||window.event;
+	  if(event && event.stopPropagation){
+		   event.stopPropagation();
+		  }else{
+			  event.cancelBubble=true;
+			  }
+	  
+	  }
+	document.onclick=function(event){
+		 var event=event||window.event;
+		 var targrtId=event.targrt ? event.targrt.id : event.srcElement.id;
+		 if(targrtId!="show"){
+				$("mask").style.display="none";
+				$("show").style.display="none";
+				document.body.style.overflow="visible";
+			 }
+		}
+</script>
+</html>

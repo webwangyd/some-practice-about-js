@@ -1,0 +1,125 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>无标题文档</title>
+</head>
+<style>
+*{ padding:0; margin:0; list-style:none; border:0;}
+.all{
+  width:500px;
+  height:200px;
+  padding:7px;
+  border:1px solid #ccc;
+  margin:100px auto;
+  position:relative;
+}
+.screen{
+	width:500px;
+	height:200px;
+	 overflow:hidden; 
+	position:relative;
+}
+.screen li{ width:500px; height:200px; overflow:hidden; float:left;}
+.screen ul{ position:absolute; left:0; top:0px; width:3000px;}
+.all ol{ position:absolute; right:10px; bottom:10px; line-height:20px; text-align:center;}
+.all ol li{ float:left; width:20px; height:20px; background:#fff; border:1px solid #ccc; margin-left:10px; cursor:pointer;}
+.all ol li.current{ background:yellow;}
+</style>
+<script>
+function animation(obj,target){
+		clearInterval(obj.timer);
+		var speed=obj.offsetLeft>target? -15:15;
+		obj.timer=setInterval(function(){
+			var result=obj.offsetLeft-target;
+/*			console.log(result)
+			console.log(Math.abs(result))*/
+			obj.style.left=obj.offsetLeft+speed+"px";
+			if(Math.abs(result)<=15)
+			{
+				clearInterval(obj.timer);
+				obj.style.left=target+"px";
+				}
+			},10)
+		}
+		
+		
+ window.onload=function(){
+	 //样式开始
+	 function $(id){return document.getElementById(id)}
+	 var ol=document.createElement("ol")
+	 $("all").appendChild(ol);
+	  for(var i=0;i<$("ul").children.length-1;i++)
+        {
+            var li = document.createElement("li");
+            li.innerHTML = i + 1;  //  给里面小的li 文字  1 2 3 4 5
+            ol.appendChild(li);  // 添加到 ol 里面
+        }
+	 ol.children[0].className="current";
+	 //动画开始
+	 var ollis=ol.children;
+	 for(var i=0;i<ollis.length;i++){
+		 ollis[i].index=i;
+		  ollis[i].onmouseover = function() {
+                 for(var j=0;j<ollis.length;j++)
+                 {
+                     ollis[j].className = "";  // 所有的都要清空
+                 }
+                 this.className = "current";
+		     animation($("ul"),-this.index*500);
+		  }
+		 }
+		//定时器
+		var timer=null;
+		var key=0;
+		var squa=0
+		timer=setInterval(autoplay,1000)
+               // 留下当前的
+		function autoplay(){
+			key++;
+			if(key>$("ul").children.length-1)
+			{
+				$("ul").style.left=0;
+				/*$("ul").style.left=0;
+				key=1;*/
+				key=1;
+				}
+		   animation($("ul"),-key*500);
+		   squa++;
+              if(squa > ollis.length-1)
+              {
+                  squa = 0;
+              }
+              for(var i=0;i<ollis.length;i++)   // 先清除所有的
+              {
+                  ollis[i].className = "";
+              }
+              ollis[squa].className = "current";  // 留下当前的
+		   
+			}
+			
+			$("ul").onmouseover=function(){
+				clearInterval(timer);
+				}
+			$("ul").onmouseout=function(){
+				timer=setInterval(autoplay,1000);
+				}
+		
+		
+ }
+</script>
+<body>
+   <div class="all" id='all'>
+	 <div class="screen">
+        <ul id="ul">
+            <li><img src="特效images/1.jpg" width="500" height="200" /></li>
+            <li><img src="特效images/2.jpg" width="500" height="200" /></li>
+            <li><img src="特效images/3.jpg" width="500" height="200" /></li>
+            <li><img src="特效images/4.jpg" width="500" height="200" /></li>
+            <li><img src="特效images/5.jpg" width="500" height="200" /></li>
+            <li><img src="特效images/1.jpg" width="500" height="200" /></li>
+        </ul>
+     </div>
+   </div>
+</body>
+</html>

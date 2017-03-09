@@ -1,0 +1,94 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>无标题文档</title>
+</head>
+<style>
+   #box{width:300px;
+   height:500px;
+   margin:100px;
+   border:1px solid #F00;
+   position:relative;
+   overflow:hidden;}
+   #content{
+	   height:auto;
+	   padding:5px 18px 5px 5px;
+	   position:absolute;
+	   top:0;
+	   left:0;}
+   #scrol{
+	   height:100%;
+	   width:18px;
+	   background-color:pink;
+	   position:absolute;
+	   top:0;
+	   right:0;}
+	#bar{
+		width:100%;
+		height:100px;
+		background-color:#F00;
+		position:absolute;
+		top:0;
+		border-radius:5px;
+		top:0;
+		left:0;
+		cursor:pointer;
+		}
+</style>
+<script>
+   window.onload=function(){
+          var box=document.getElementById("box");
+		  var con=box.children[0];
+		  var scr=box.children[1];
+		  var bar=scr.children[0];
+		  var barh=box.offsetHeight/con.offsetHeight*box.offsetHeight;
+		  if(barh>box.offsetHeight){
+			  barh=box.offsetHeight;
+			  }
+		  bar.style.height=barh+"px";
+		  bar.onmousedown=function(event){
+			  var event=event||window.event;
+			  var topval=event.clientY-this.offsetTop;
+			  var that=this;
+			  document.onmousemove=function(event){
+				  	var event=event||window.event;
+					var val=event.clientY-topval;
+				
+					if(val<=0){
+						val=0;
+						}else if(val>box.offsetHeight-that.offsetHeight){
+							val=box.offsetHeight-that.offsetHeight;
+							}
+					var contop=(con.offsetHeight-box.offsetHeight)/(box.offsetHeight-that.offsetHeight)*val	;
+					con.style.top=-contop+"px";
+					that.style.top=val+"px";
+					 window.getSelection ? window.getSelection().removeAllRanges() : document.selection.empty();  
+				  }
+					}
+					document.onmouseup=function(){
+					document.onmousemove=null;
+			       }
+		  	   
+	   }
+</script>
+<body>
+<div id="box">
+  <div id="content">
+   文字内容部分文字内容部分文字内容部分文字内容部分文字内容部分文字内容部分文字内容部分文字内容部分文字内容部分文字内容部分文字内容部分文字内容部分文字内容部分文字内容部分
+     文字内容部分文字内容部分文字内容部分文字内容部分文字内容部分文字内容部分文字内容部分文字内容部分文字内容部分文字内容部分文字内容部分文字内容部分文字内容部分文字内容部分
+     文字内容部分文字内容部分文字内容部分文字内容部分文字内容部分文字内容部分文字内容部分文字内容部分文字内容部分文字内容部分文字内容部分文字内容部分文字内容部分文字内容部分
+     文字内容部分文字内容部分文字内容部分文字内容部分文字内容部分文字内容部分文字内容部分文字内容部分文字内容部分文字内容部分文字内容部分文字内容部分文字内容部分文字内容部分
+     文字内容部分文字内容部分文字内容部分文字内容部分文字内容部分文字内容部分文字内容部分文字内容部分文字内容部分文字内容部
+ 文字内容部分文字内容部分文字内容部分文字内容部分文字内容部分文字内容部分文字内容部分文字内容部分文字内容部分文字内容部分文字内容部分文字内容部分文字内容部分文字内容部分
+     文字内容部分文字内容部分文字内容部分文字内容部分文字内容部分文字内容部分文字内容部分文字内容部分文字内容部分文字内容部分文字内容部分文字内容部分文字内容部分文字内容部分
+     文字内容部分文字内容部分文字内容部分文字内容部分文字内容部分文字内容部分文字内容部分文字内容部分文字内容部分文字内容部分文字内容部分文字内容部分文字内容部分文字内容部分
+     文字内容部分文字内容部分文字内容部分文字内容部分文字内容部分文字内容部分文字内容部分文字内容部分文字内容部分文字内容部分文字内容部分文字内容部分文字内容部分文字内容部分
+     文字内容部分文字内容部分文字内容部分文字内容部分文字内容部分文字内容部分文字内容部分文字内容部分文字内容部分文字内容部
+  </div>
+  <div id="scrol">
+    <div id="bar"></div>
+  </div>
+</div>
+</body>
+</html>

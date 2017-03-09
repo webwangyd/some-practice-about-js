@@ -1,0 +1,112 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>无标题文档</title>
+</head>
+<style>
+*{
+	margin:0;
+	padding:0;
+	}
+ul{list-style:none;}
+
+.box{
+	width:300px;
+	margin:100px auto;
+	border:1px solid #F00;
+	overflow:hidden;
+	}
+.box ul li{
+	height:280px;
+	display:none;
+	background:#F00;}
+.bottom .bg{
+	display:block;
+	background:#F00;}
+.top span{
+	display:inline-block;
+	width:66px;
+	padding-left:3px;}
+.spanbg{
+	background-color:#F00;}
+</style>
+<script>
+   window.onload=function(){
+	   function tab(obj){
+	   var obj=document.getElementById(obj);
+	   var btns=obj.getElementsByTagName("span");
+	   var divs=obj.getElementsByTagName("li");
+	   for(var i=0;i<btns.length;i++)
+	   {  
+		   btns[i].index=i;
+		   btns[i].onmouseover=function()
+		      {
+			  for(var j=0;j<btns.length;j++)
+			     {
+				  btns[j].className="";
+				    divs[j].className="";
+				  }
+		   this.className="spanbg";
+		   divs[this.index].className="bg"
+			   }
+	  }
+    }
+	tab("box1");
+	tab("box2");
+	/*tab("box3");*/
+   }
+</script>
+<body>
+<div id="box1" class="box">
+  <div class="top">
+    <span class="spanbg">新闻</span>
+    <span>体育</span>
+    <span>奥运</span>
+    <span>八卦</span>
+  </div>
+  <div class="bottom">
+    <ul>
+      <li class="bg">新闻模块</li>
+      <li>体育模块</li>
+      <li>奥运模块</li>
+      <li>八卦模块</li>
+    </ul>
+  </div>
+</div>
+
+<div id="box2" class="box">
+  <div class="top">
+    <span class="spanbg">新闻</span>
+    <span>体育</span>
+    <span>奥运</span>
+    <span>八卦</span>
+  </div>
+  <div class="bottom">
+    <ul>
+      <li class="bg">新闻模块</li>
+      <li>体育模块</li>
+      <li>奥运模块</li>
+      <li>八卦模块</li>
+    </ul>
+  </div>
+</div>
+
+<div id="box3" class="box">
+  <div class="top">
+    <span class="spanbg">新闻</span>
+    <span>体育</span>
+    <span>奥运</span>
+    <span>八卦</span>
+  </div>
+  <div class="bottom">
+    <ul>
+      <li class="bg">新闻模块</li>
+      <li>体育模块</li>
+      <li>奥运模块</li>
+      <li>八卦模块</li>
+    </ul>
+  </div>
+</div>
+</body>
+</html>

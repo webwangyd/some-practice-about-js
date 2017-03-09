@@ -1,0 +1,65 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>无标题文档</title>
+</head>
+<style>
+div{
+	text-indent:25px;
+   width:400px;
+   margin:20px;
+   }
+ #demo{
+	 width:100px;
+	 height:100px;
+	 background-color:#0FF;
+	 position:absolute;
+	 display:none;
+	 overflow:hidden;}
+</style>
+<script>
+   window.onload=function(){
+	    function $(id){return document.getElementById(id)}
+		$("mask").onmouseup=function(event){
+			var event=event||window.event;
+			var x=event.clientX;
+			var y=event.clientY;
+			var text;
+			if(window.getSelection)
+			{
+				text=window.getSelection().toString();
+				}else{
+					text=document.selection.createRange().text;
+					}
+				if(text)
+				{
+					showbox(x,y,text);
+					}
+			}
+		document.onmousedown=function(event){
+			var event=event||window.event;
+			var targetid=event.target? event.target.id:event.srcElement.id;
+			if(targetid != "demo")
+			{
+				$("demo").style.display="none";
+				}
+			}
+	   function showbox(mouseboxX,mouseboxY,content){
+             setTimeout(function(){
+			   $("demo").style.display="block";
+			   $("demo").style.left=mouseboxX+"px";
+			   $("demo").style.top=mouseboxY+"px";
+			  $("demo").innerHTML=content;
+			  },50)
+		     
+		   }
+	   }
+
+</script>
+
+<body>
+ <span id="demo"></span>
+ <div id="mask">我要复制我要复我要复我要复制我要我要复制我要复我要复我要复制我要复我要复我要复制我要我要复制我要复我要复我要复制我要复我要复制我要复制制制我要复我要复制我要复制我要复制我要复我要复我要复制我要我要复制我要复我要复我要复制我要复我要复制我要复制制制我要复我要复制我要复制制我要复制我要复制制复我要复制我要复制制制我要复我要复制我要复制制我要复制我要复制制我要复制我要复我要复我要复制我要我要复制我要复我要复我要复制我要复我要复制我要复制制制我要复我要复制我要复制制我要复制我要复制制复我要复制我要复制制制我要复我要复制我要复制制我要复制我要复制制制我要复制我要复制制复我要复制我要复制制制我要复我要复制我要复制制我要复制我要复制制我要复制我要复我要复制我要复制制制我要复我要复制我要复制制我要复制我要复制制复我要复制我要复制制制我要复我要复制我要复制制我要复制我要复制制</div>
+</body>
+</html>

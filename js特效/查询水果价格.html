@@ -1,0 +1,40 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>无标题文档</title>
+</head>
+<script>
+  window.onload=function(){
+	  var txt=document.getElementById("txt");
+	  var btn=document.getElementById("btn");
+	  btn.onclick=function(){
+		  var value=txt.value;
+		  switch(value)
+		  {
+		     case "苹果":
+			 alert("苹果的价格是5元/斤");
+			 break;
+			 case "香蕉":
+			 alert("香蕉的价格是3元/斤");
+			 break;
+			 case "梨子":
+			 alert("梨子的价格是2.5元/斤");
+			 break;
+			 case "葡萄":
+			 alert("葡萄的价格是7元/斤");
+			 break;
+			 case "":
+			 alert("请输入水果");
+			 break;
+			 default:
+			 alert("没有进该类水果");
+		  }
+		  } 
+	  
+	  }
+</script>
+<body>
+<input type="text" id="txt"><button id="btn">查询价格</button>
+</body>
+</html>

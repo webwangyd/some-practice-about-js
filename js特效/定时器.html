@@ -1,0 +1,23 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>无标题文档</title>
+</head>
+<script>
+ window.onload=function(){
+   var ord=document.getElementById("demo");
+   var num=0;
+   function fn(){
+	   num++;
+	   ord.innerHTML=num;
+	   }
+	setInterval(fn,1000);
+ }
+</script>
+<body>
+<div id="demo">
+  
+</div>
+</body>
+</html>

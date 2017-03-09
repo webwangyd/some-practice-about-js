@@ -1,0 +1,35 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>无标题文档</title>
+</head>
+
+<body>
+</body>
+<script>
+  function Person(name,age){
+	  this.name=name;
+	  this.age=age;
+	  }
+  Person.prototype.showname=function(){
+	  alert(this.name);
+	  }
+  Person.prototype.showage=function(){
+	  alert(this.age);
+	  }
+  var demo1=new Person("wyd",25);
+  var demo2=new Person("wydwyd",25);
+  demo1.showname();
+  demo1.showage();
+  demo2.showname();
+  demo2.showage();
+  alert(demo1.showname);
+  alert(demo2.showname);
+ /* alert(demo2.showname());*/
+  alert("wyd");
+  /*alert(demo2.showname());*/
+  alert("demo1.showname()"=="demo2.showname()");
+ /* alert(demo1.showage==demo2.showage);*/
+</script>
+</html>

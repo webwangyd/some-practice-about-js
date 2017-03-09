@@ -1,0 +1,44 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>无标题文档</title>
+</head>
+<style>
+body{
+	
+	background-image:url(images/01big.jpg)}
+</style>
+<script>
+   window.onload=function(){
+	   var mou=document.getElementById("mouse");
+	   mou.onchange=function(){
+	   var val=mou.value;
+	   switch(val)
+	   {
+		case "1":
+		   document.body.style.backgroundImage="url(images/01big.jpg)";
+		   break;
+		 case "2":
+		   document.body.style.backgroundImage="url(images/02big.jpg)";
+		   break;
+		 case "3":
+		   document.body.style.backgroundImage="url(images/03big.jpg)";
+		   break;
+		 case "4":
+		   document.body.style.backgroundImage="url(images/04big.jpg)";
+		   break;
+		}
+	   
+	   }
+   }
+</script>
+<body>
+<select name="" id="mouse">
+  <option value="1">鼠标一</option>
+  <option value="2">鼠标二</option>
+  <option value="3">鼠标三</option>
+  <option value="4">鼠标四</option>
+</select>
+</body>
+</html>

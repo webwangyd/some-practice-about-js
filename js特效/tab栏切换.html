@@ -1,0 +1,77 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>无标题文档</title>
+</head>
+<style>
+#box{
+	width:400px;
+	margin:100px auto;
+	border:1px solid #666}
+#top button{
+	width:70px;}
+.btnbg{
+	background-color:#F00;}
+#bottom div{
+	display:none;
+	height:300px;
+	background-color:#F00}
+#bottom .bg{
+	display:block;
+	background-color:#F00;}
+</style>
+<script>
+   window.onload=function(){
+	   var btns=document.getElementsByTagName("button");
+	   var divs=document.getElementById("bottom").getElementsByTagName("div");
+	   for(var i=0;i<btns.length;i++)
+	   {  
+	      /* btns[i].index=i;
+		   btns[i].onclick=function()
+		      {
+			  for(var j=0;j<btns.length;j++)
+			     {
+				  btns[j].className="";
+				  }
+		   this.className="btnbg";
+		       for(var j=0;j<btns.length;j++)
+			      {
+					  divs[j].className="";
+				   }
+				  
+				divs[this.index].className="bg"
+			   }*/
+		   btns[i].index=i;
+		   btns[i].onclick=function()
+		      {
+			  for(var j=0;j<btns.length;j++)
+			     {
+				  btns[j].className="";
+				    divs[j].className="";
+				  }
+		   this.className="btnbg";
+		   divs[this.index].className="bg"
+			   }
+	  }
+    }
+</script>
+<body>
+<div id="box">
+   <div id="top">
+      <button>切换一</button>
+      <button>切换二</button>
+      <button>切换三</button>
+      <button>切换四</button>
+      <button>切换五</button>
+   </div>
+   <div id="bottom">
+       <div class="bg">盒子一</div>
+       <div>盒子二</div>
+       <div>盒子三</div>
+       <div>盒子四</div>
+       <div>盒子五</div>
+   </div>
+</div>
+</body>
+</html>

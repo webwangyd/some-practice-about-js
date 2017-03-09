@@ -1,0 +1,68 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>无标题文档</title>
+</head>
+<script>
+  window.onload=function(){
+	  function getClass(className,id){
+		  if(document.getElementsByClassName)
+		  {
+			 if(id)
+			 {
+				 var divid=document.getElementById(id);
+				 return divid.getElementsByClassName(className);
+			 }else
+			    {
+				  return document.getElementsByClassName(className);	
+				}
+		  }else
+		    {
+			  if(id)
+			    {
+				 var divid=document.getElementById(id);
+				 var flag=divid.getElementByTagName("*");
+			    }else{
+				  var flag=document.getElementByTagName("*");
+					}
+				var arr=[];
+				 for(var i=0;i<flag.length;i++)
+				  {
+					  var txt=flag[i].className.split(" ");
+					  for(var j=0;j<txt.length;j++)
+					    {
+						  if(txt[i]==className){
+							  arr.push(flag[i])
+							  }
+						}
+					  }
+				
+		    }
+		    
+				  return arr;
+		  }     
+	      console.log(getClass("test").length);
+		  var test=getClass("test");
+		  for(var j=0;j<test.length;j++)
+		  {
+			  test[j].style.width="50px";
+			  test[j].style.height="50px";
+			  test[j].style.backgroundColor="red";
+			  test[j].style.margin="10px";
+			  }
+	  }
+
+</script>
+<body>
+<div></div>
+<div class="demo test"></div>
+<div></div>
+<div id="one">
+<div class="demo test"></div>
+<div class="demo test"></div>
+</div>
+<div></div>
+<div class="demo"></div>
+</body>
+</html>

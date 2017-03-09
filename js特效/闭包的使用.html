@@ -1,0 +1,24 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>无标题文档</title>
+</head>
+
+<body>
+</body>
+<script>
+   function outfun(){
+	 var a=0;
+	 function infun(){
+		 a++;
+		 alert(a);
+		 }
+		 return infun;
+	   }
+	 var demo1=outfun();
+	 demo1();demo1();
+	 var demo2=outfun();
+	 demo2();demo2();
+</script>
+</html>

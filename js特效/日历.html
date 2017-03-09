@@ -1,0 +1,60 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>无标题文档</title>
+</head>
+<style>
+  #box{
+	  width:150px;
+	  height:200px;
+	  margin:100px auto;
+	  background-color:#60C;
+	  text-align:center;
+	  }
+  #box p{
+	  display:block;
+	  line-height:70px;
+	   font-size:14px;
+	   color:#FFF;
+		 }
+  #box span{
+	  margin:0px auto;
+	  display:block;
+	  width:140px;
+	  height:80px;
+	  background-color:#6F6;
+	  color:#FFF;
+	  line-height:80px;
+	  font-size:30px;}
+</style>
+<script>
+   window.onload=function(){
+	   var boxs=document.getElementById("box");
+	   setInterval(rili,1000);
+	   function rili(){
+	   var date=new Date();
+	   var arr=["星期日","星期一","星期二","星期三","星期四","星期五","星期六"];
+	   m=date.getMonth()+1;
+	   d=date.getDate();
+	   h=date.getHours();
+	   M=date.getMinutes();
+	   s=date.getSeconds();
+	   m<10? m="0"+m : m;
+	   d<10? d="0"+d : d;
+	   h<10? h="0"+h : h;
+	   M<10? M="0"+M : M;
+	   s<10? s="0"+s : s;
+	   var list=boxs.children;
+	   list[0].innerHTML=date.getFullYear()+"年"+m+"月"+d+"日"+" "+arr[date.getDay()];
+	   list[1].innerHTML=h+":"+M+":"+s;
+	   }
+	   }
+</script>
+<body>
+<div id="box">
+  <p></p>
+  <span></span>
+</div>
+</body>
+</html>

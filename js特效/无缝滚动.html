@@ -1,0 +1,61 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>无标题文档</title>
+</head>
+<style>
+  *{
+	  margin:0;
+	  padding:0;}
+#box ul{ width:2400px;
+    height:200px;
+	list-style:none;
+	position:absolute;
+	left:0;
+	top:0;}
+ul li{
+	float:left;
+	vertical-align:top;}	
+#box{
+	width:600px;
+	height:200px;
+	margin:100px auto;
+	position:relative;
+	background-color:pink;
+	overflow:hidden;
+	}
+</style>
+<script>
+  window.onload=function(){
+	   var box=document.getElementById("box");
+	   var num=0;
+	   var timer=null;
+	   var ul=box.children[0];
+	   timer=setInterval(autopage,5);
+	   function autopage(){
+		   num--;
+		   num<=-1200? num=0:num;
+		   ul.style.left=num+"px";
+		   }
+		ul.onmouseover=function(){
+			clearInterval(timer);
+			}
+		ul.onmouseout=function(){
+			timer=setInterval(autopage,10);
+			}
+	  }
+</script>
+<body>
+<div id="box">
+   <ul>
+     <li><img src="images/01 (2).jpg"></li>
+     <li><img src="images/02 (2).jpg"></li>
+     <li><img src="images/03 (2).jpg"></li>
+     <li><img src="images/04 (2).jpg"></li>
+     <li><img src="images/01 (2).jpg"></li>
+     <li><img src="images/02 (2).jpg"></li>
+   </ul>
+</div>
+</body>
+</html>

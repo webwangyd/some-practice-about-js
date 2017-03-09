@@ -1,0 +1,50 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>无标题文档</title>
+</head>
+
+<body>
+</body>
+<script>
+ function client(){
+	 if(window.innerWidth != null)
+	 {
+		 return {//IE9+及其他浏览器
+			 width:window.innerWidth,
+			 height:window.innerHeight
+			 }
+	 }
+			 else if(document.compatMode === "CSS1Compat") 
+			 {
+				 return{//IE678
+					 width:document.documentElement.clientWidth,
+					 height:document.documentElement.clientHeight
+					 }
+				 }
+				return{//怪异浏览器
+					width:document.body.clientWidth,
+					height:document.body.clientHeight
+					}
+				 
+	 }
+	 onreSize();
+	 window.onresize=onreSize;
+	 function onreSize(){
+		 var clientWidth = client().width;
+		  if(clientWidth > 960)
+         {
+             document.body.style.backgroundColor = "red";
+         }
+         else if(clientWidth > 640 )
+         {
+             document.body.style.backgroundColor = "green";
+         }
+         else
+         {
+             document.body.style.backgroundColor = "blue";
+         }
+		 }
+</script>
+</html>
